@@ -6,56 +6,69 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class BankAccountTest {
 
     BankAccount bankaccount;
+
     @BeforeEach
     public void setUp() {
-        bankaccount = new BankAccount("Maymunah", "Butt", "22/08/02", "12/07/23", 171717, 0 );
+        bankaccount = new BankAccount("Maymunah", "Butt", "22/08/02", "12/07/23", 5.00, 17171717);
     }
+
     @Test
-    public void hasFirstName(){
+    public void hasFirstName() {
         String actual = bankaccount.getFirstName();
         String expected = "Maymunah";
         assertThat(actual).isEqualTo(expected);
     }
 
     @Test
-    public void hasLastName(){
+    public void hasLastName() {
         String actual = bankaccount.getLastName();
         String expected = "Butt";
         assertThat(actual).isEqualTo(expected);
     }
 
     @Test
-    public void hasDateOfBirth(){
+    public void hasDateOfBirth() {
         String actual = bankaccount.getDateOfBirth();
         String expected = "22/08/02";
         assertThat(actual).isEqualTo(expected);
     }
 
     @Test
-    public void hasCurrentDate(){
+    public void hasCurrentDate() {
         String actual = bankaccount.getCurrentDate();
         String expected = "12/07/23";
         assertThat(actual).isEqualTo(expected);
+
     }
 
     @Test
-    public void setAccountNumber(){
+    public void setAccountNumber() {
         int actual = bankaccount.getAccountNumber();
-        int expected = 171717;
+        int expected = 17171717;
         assertThat(actual).isEqualTo(expected);
     }
 
     @Test
-    public void setBalance(){
-        int actual = bankaccount.getBalance();
-        int expected = 0;
+    public void setBalance() {
+        double actual = bankaccount.getBalance();
+        double expected = 5.00;
         assertThat(actual).isEqualTo(expected);
     }
 
     @Test
-    public void deposit(){
-        int actual = bankaccount.deposit();
-        int expected = 1000;
+    public void deposit() {
+        bankaccount.deposit(5.00);
+        double actual = bankaccount.getBalance();
+        double expected = 10.00;
         assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    public void withdrawal() {
+        bankaccount.withdrawal(2.50);
+        double actual = bankaccount.getBalance();
+        double expected = 2.50;
+        assertThat(actual).isEqualTo(expected);
+//    }
     }
 }
