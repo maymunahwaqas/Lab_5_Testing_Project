@@ -49,6 +49,14 @@ public class BankAccountTest {
     }
 
     @Test
+    public void setFirstName(){
+        bankaccount.setFirstName("Adam");
+        String actual = bankaccount.getFirstName();
+        String expected = "Adam";
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
     public void setBalance() {
         double actual = bankaccount.getBalance();
         double expected = 5.00;
@@ -69,6 +77,14 @@ public class BankAccountTest {
         double actual = bankaccount.getBalance();
         double expected = 2.50;
         assertThat(actual).isEqualTo(expected);
-//    }
+    }
+
+    @Test
+    public void payInterest(){
+        bankaccount.addInterest(1.25);
+        double actual = bankaccount.getBalance();
+        double expected = 0 * 1.25;
+        assertThat(actual).isEqualTo(expected);
+
     }
 }

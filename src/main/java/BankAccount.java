@@ -73,6 +73,15 @@ public class BankAccount {
     public void withdrawal(double balanceWithdrawn2) {
         this.balance -= balanceWithdrawn2;
     }
+
+    public void setFirstName(String name) {
+        this.firstName = name;
+
+    }
+
+    public void addInterest( double interestRate) {
+        this.balance *= 1.25;
+    }
 //    // withdraw
 //    public double withdraw (double withdrawalAmount){
 //        balance += withdrawalAmount;
